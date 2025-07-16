@@ -19,6 +19,9 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { allMovies } from "@/lib/data";
+import { getSearchSuggestions } from "@/app/actions/searchActions";
+import { set } from "date-fns";
+import { useDebouncedCallback } from "use-debounce";
 
 export function Navbar() {
     const router = useRouter();
@@ -44,21 +47,21 @@ export function Navbar() {
         };
     }, []);
 
-    // Generate suggestions based on search query
-    useEffect(() => {
-        if (searchQuery.length > 1) {
-            const query = searchQuery.toLowerCase();
-            const movieSuggestions = allMovies
-                .filter((movie) => movie.title.toLowerCase().includes(query))
-                .slice(0, 5);
-
-            setSuggestions(movieSuggestions);
-            setShowSuggestions(movieSuggestions.length > 0);
-        } else {
-            setSuggestions([]);
-            setShowSuggestions(false);
-        }
-    }, [searchQuery]);
+    const handelSearchChange = useDebouncedCallback(
+        async (searchQuery: string) => {
+            if (searchQuery.length > 1) {
+                const movieSuggestions = await getSearchSuggestions(
+                    searchQuery
+                );
+                setSuggestions(movieSuggestions);
+                setShowSuggestions(movieSuggestions.length > 0);
+            } else {
+                setSuggestions([]);
+                setShowSuggestions(false);
+            }
+        },
+        250
+    );
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
@@ -135,9 +138,10 @@ export function Navbar() {
 
                     <Link
                         href="/"
-                        className="text-2xl font-bold text-primary ml-2 md:ml-0"
+                        className="text-2xl font-black text-primary ml-2 md:ml-0"
                     >
-                        Baz<span className="text-white">Movies</span>
+                        Baz
+                        <span className="text-white">Movies</span>
                     </Link>
                 </div>
 
@@ -183,9 +187,8 @@ export function Navbar() {
                                     type="search"
                                     placeholder="Search movies..."
                                     className="w-[200px] pl-8 md:w-[250px] lg:w-[300px] pr-10"
-                                    value={searchQuery}
                                     onChange={(e) =>
-                                        setSearchQuery(e.target.value)
+                                        handelSearchChange(e.target.value)
                                     }
                                     onFocus={() => {
                                         if (suggestions.length > 0) {
