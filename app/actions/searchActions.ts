@@ -44,5 +44,5 @@ export async function getSearchSuggestions(query: string) {
         language: m.original_language,
         rating: Math.round(m.vote_average),
     }));
-    return results.slice(0, 10);
+    return results.slice(0, 5);
 }

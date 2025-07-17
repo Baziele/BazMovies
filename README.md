@@ -15,6 +15,30 @@ A modern movie discovery and streaming platform built with Next.js 15, React 19,
 -   📊 User viewing history
 -   💳 Billing management
 
+## 📸 Screenshots
+
+Here's a visual overview of the application:
+
+### Home Page
+
+![Home Page](/docs/home.png)
+
+### Movie Details
+
+![Movie Details](/docs/movieDetails.png)
+
+### Movie List
+
+![Movie List](/docs/movieList.png)
+
+### Season Details
+
+![Season Details](/docs/seaonDetails.png)
+
+### Movie Player
+
+![Watching Movie](/docs/watchingMovie.png)
+
 ## 🛠️ Tech Stack
 
 -   **Framework:** Next.js 15
