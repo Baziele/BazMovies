@@ -21,23 +21,23 @@ Here's a visual overview of the application:
 
 ### Home Page
 
-![Home Page](/docs/home.png)
+![Home Page](https://github.com/Baziele/BazMovies/blob/main/public/docs/home.png?raw=true)
 
 ### Movie Details
 
-![Movie Details](/docs/movieDetails.png)
+![Movie Details](https://github.com/Baziele/BazMovies/blob/main/public/docs/movieDetails.png?raw=true)
 
 ### Movie List
 
-![Movie List](/docs/movieList.png)
-
-### Season Details
-
-![Season Details](/docs/seaonDetails.png)
+![Movie List](https://github.com/Baziele/BazMovies/blob/main/public/docs/movieList.png?raw=true)
 
 ### Movie Player
 
-![Watching Movie](/docs/watchingMovie.png)
+![Watching Movie](https://github.com/Baziele/BazMovies/blob/main/public/docs/watchingMovie.png?raw=true)
+
+### Up Next
+
+![Up Next](https://github.com/Baziele/BazMovies/blob/main/public/docs/seaonDetails.png?raw=true)
 
 ## 🛠️ Tech Stack
 
